@@ -3,22 +3,12 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "features": {
-    // "ghcr.io/devcontainers-contrib/features/elixir-asdf:2": {},
-    // "ghcr.io/devcontainers-contrib/features/erlang-asdf:2": {}
-  },
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // This can be used to network with other containers or with the host.
-  // "forwardPorts": [3000, 5432],
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "yarn install",
-
-  // Configure tool-specific properties.
   "customizations": {
-    // "vscode": {
-    //   "extensions": ["elixir-lsp.elixir-ls"]
-    // }
-  }
+    "vscode": {
+      "extensions": [
+        "JakeBecker.elixir-ls"
+      ]
+    }
+  },
+  "postAttachCommand": "mix setup && mix phx.server"
 }
